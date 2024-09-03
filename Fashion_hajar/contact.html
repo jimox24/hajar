@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <meta http-equiv="x-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HAJAR LifeStyle</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+        <div class="container">
+            <div class="message-card">
+                <div class="logo-pic">
+                    <img src="assets/logo.png" alt="logo-pic" width="200px">
+                </div>
+                <div class="title">
+                   <h1>Contact us </h1>
+                </div>
+                <form onsubmit="sendEmail(); reset(); return false;">
+                    <input type="text" id="name" placeholder="your name" required>
+                    <input type="email" id="email" placeholder="E-mail" required>
+                    <input type="text" id="phone" placeholder="phone number" required>
+                    <textarea type="message" cols="30" rows="4" placeholder="leave your message"></textarea>
+                    <button id="submit" type="submit">Send</button>
+                    <a href="index.html" class="btn">Close</a>
+                </form>
+            </div>
+        </div>
+    
+      <script src="https://smtpjs.com/v3/smtp.js"></script>
+      <script>
+        function sendEmail(){
+            Email.send({
+    SecureToken : "7d08cf1d-50d7-4ee4-907e-8a97b5325253",
+    To : 'hajar.lifetime24@gmail.com',
+    From : "hajar.lifetime24@gmail.com",
+    Subject : "Test email",
+    Body : "name: "+document.getElementById("name").value
+    + "<br> Email: " + document.getElementById("email").value
+    + "<br> phone number: " + document.getElementById("phone").value
+    + "<br> message: " + document.getElementById("message").value
+}).then(
+  message => alert("message sent succesfully")
+);
+        }
+      </script>
+    </body>
+</html>
